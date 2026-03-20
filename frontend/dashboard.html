@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedaje - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="frontend\src\css\style.css">
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+    <nav class="bg-blue-600 text-white shadow-lg p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">🏨 Sistema Hospedaje</h1>
+            <div class="flex items-center gap-4">
+                <span id="welcomeName" class="font-medium">Cargando...</span>
+                <button id="logoutBtn" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-sm transition">
+                    Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto mt-10 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Mi Perfil</h3>
+                <p class="text-slate-600 mb-4">Gestiona tu información personal, cambia tu correo o dirección.</p>
+                <a href="perfil.html" class="text-blue-600 font-semibold hover:underline">Ir a mi perfil →</a>
+            </div>
+
+            <div id="adminCard" class="hidden bg-white p-6 rounded-xl shadow-sm border-l-4 border-l-orange-500 shadow-sm hover:shadow-md transition">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Gestión de Usuarios</h3>
+                <p class="text-slate-600 mb-4">Panel exclusivo para Administradores. Crea, edita y cambia roles.</p>
+                <a href="admin_usuarios.html" class="text-orange-600 font-semibold hover:underline">Administrar sistema →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 opacity-50">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Mis Reservas</h3>
+                <p class="text-slate-600 mb-4">Próximamente: Podrás ver tus habitaciones reservadas aquí.</p>
+                <span class="text-slate-400 text-sm italic">Módulo en desarrollo</span>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/src/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedaje - Registro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-slate-900 py-10 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
+        <h1 class="text-3xl font-bold text-slate-800 mb-2">Crear Cuenta</h1>
+        <p class="text-slate-500 mb-8">Completa tus datos para registrarte en el sistema.</p>
+
+        <form id="registerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Nombre</label>
+                <input type="text" id="reg_nombre" required class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Apellido</label>
+                <input type="text" id="reg_apellido" required class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Nombre de Usuario</label>
+                <input type="text" id="reg_username" required class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Correo Electrónico</label>
+                <input type="email" id="reg_email" required class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-slate-700">Contraseña</label>
+                <input type="password" id="reg_password" required class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Tipo Documento</label>
+                <select id="reg_tipoDoc" class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                </select>
+            </div>
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Número Documento</label>
+                <input type="number" id="reg_numDoc" required class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">Teléfono</label>
+                <input type="text" id="reg_telefono" class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="md:col-span-1">
+                <label class="block text-sm font-medium text-slate-700">País</label>
+                <input type="text" id="reg_pais" class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-slate-700">Dirección</label>
+                <input type="text" id="reg_direccion" class="w-full mt-1 p-2 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div id="registerError" class="hidden md:col-span-2 text-sm p-3 rounded-lg bg-red-50 text-red-600 border border-red-200"> </div>
+            
+            <button type="submit" class="md:col-span-2 w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition mt-4">
+                Registrarse
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+             <p class="text-sm text-slate-600">
+                ¿Ya tienes cuenta? <a href="index.html" class="text-blue-600 font-bold hover:underline"> Inicia sesión</a>
+            </p>
+            
+        </div>
+    </div>
+
+    <script src="/src/js/main.js"></script>
+</body>
+</html>

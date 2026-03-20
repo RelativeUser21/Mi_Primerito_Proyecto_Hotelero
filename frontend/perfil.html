@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedaje - Mi Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+    <nav class="bg-slate-800 text-white p-4 shadow-md">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="dashboard.html" class="hover:text-blue-400 transition">← Volver al Panel</a>
+            <h1 class="text-lg font-bold">Mi Configuración</h1>
+            <div class="w-20"></div> </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto mt-10 p-4">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-blue-600 p-6 text-white text-center">
+                <h2 class="text-2xl font-bold">Editar Información Personal</h2>
+                <p class="opacity-80">Mantén tus datos de contacto actualizados</p>
+            </div>
+
+            <form id="profileForm" class="p-6 space-y-4">
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Nombre de Usuario</label>
+    <input type="text" id="NombreUsuario" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Nombre</label>
+    <input type="text" id="Nombre" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Apellido</label>
+    <input type="text" id="Apellido" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Email</label>
+    <input type="email" id="Email" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Tipo Documento</label>
+    <select id="TipoDocumento" class="w-full p-2 border rounded border-slate-300">
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="CE">Cédula de Extranjería</option>
+        <option value="TI">Tarjeta de Identidad</option>
+    </select>
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Número Documento</label>
+    <input type="number" id="NumeroDocumento" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">Teléfono</label>
+    <input type="text" id="Telefono" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2">
+    <label class="block text-sm font-semibold text-slate-700">País</label>
+    <input type="text" id="Pais" class="w-full p-2 border rounded border-slate-300">
+</div>
+<div class="space-y-2 md:col-span-2">
+    <label class="block text-sm font-semibold text-slate-700">Dirección</label>
+    <input type="text" id="Direccion" class="w-full p-2 border rounded border-slate-300">
+</div>
+
+                <div class="md:col-span-2 flex flex-col md:flex-row gap-4 pt-6">
+                    <button type="submit" class="flex-1 bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition">
+                        Actualizar mis datos
+                    </button>
+                    <button type="button" id="deleteAccountBtn" class="bg-red-100 text-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-200 transition">
+                        Borrar Cuenta
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="/src/js/perfil.js"></script>
+</body>
+</html>

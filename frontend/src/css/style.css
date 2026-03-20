@@ -1,0 +1,14 @@
+/* Transición suave al cargar la página */
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilo para los inputs cuando están enfocados */
+input:focus {
+    transform: translateY(-2px);
+}
