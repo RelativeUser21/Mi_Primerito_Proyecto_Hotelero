@@ -25,8 +25,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Rellenamos los inputs que existen en el HTML
       document.getElementById("NombreUsuario").value = data.NombreUsuario || "";
+      document.getElementById("Nombre").value = data.Nombre || "";
       document.getElementById("Apellido").value = data.Apellido || "";
       document.getElementById("Email").value = data.Email || "";
+      document.getElementById("TipoDocumento").value = data.TipoDocumento || "";
+      document.getElementById("NumeroDocumento").value = data.NumeroDocumento || "";
       document.getElementById("Telefono").value = data.Telefono || "";
       document.getElementById("Pais").value = data.Pais || "";
       document.getElementById("Direccion").value = data.Direccion || "";
@@ -45,10 +48,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Campos que NO están en el formulario pero existen en la DB
       ...datosOriginales,
 
-      // Campos que SÍ están y queremos actualizar
+      // Campos que SÍ están y queremos actualizar3
       NombreUsuario: document.getElementById("NombreUsuario").value,
+      Nombre: document.getElementById("Nombre").value,
       Apellido: document.getElementById("Apellido").value,
       Email: document.getElementById("Email").value,
+      TipoDocumento: document.getElementById("TipoDocumento").value,
+      NumeroDocumento: document.getElementById("NumeroDocumento").value,
       Telefono: document.getElementById("Telefono").value,
       Pais: document.getElementById("Pais").value,
       Direccion: document.getElementById("Direccion").value,
