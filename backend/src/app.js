@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, '../../frontend')));
 
 // --- Importación de Rutas ---
 app.use("/api/auth", require("./routes/auth.routes"));
+app.use("/api/password-reset", require("./routes/passwordReset.routes"));
 app.use("/api/usuarios", require("./routes/usuarios.routes"));
 app.use("/api/roles", require("./routes/roles.routes"));
 // app.use("/api/clientes", require("./routes/clientes.routes")); 

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => { //Esperar a que el html ca
       errorContainer.classList.add("hidden");
       errorContainer.innerHTML = "";
 
-      const nombreUsuario = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
       const contrasena = document.getElementById("password").value;
 
       try {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => { //Esperar a que el html ca
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            NombreUsuario: nombreUsuario,
+            Email: email,
             Contrasena: contrasena,
           }),
         });
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => { //Esperar a que el html ca
         if (response.ok) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("user", JSON.stringify(data.usuario));
-          window.location.href = "/dashboard.html";
+          window.location.href = "/src/pages/dashboard.html";
         } else {
           // MOSTRAR ERROR SIN ALERT
           errorContainer.classList.remove("hidden");
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => { //Esperar a que el html ca
             errorContainer.innerHTML = `
                             La contraseña es incorrecta. Inténtalo de nuevo. 
                             <br>
-                            <a href="/recuperarpass.html" class="font-bold underline hover:text-red-800">¿Olvidaste tu contraseña?</a>
+                            <a href="/src/pages/recuperarpass.html" class="font-bold underline hover:text-red-800">¿Olvidaste tu contraseña?</a>
                         `;
           } else {
             // Error genérico (Usuario no existe, etc.)
@@ -66,18 +66,31 @@ document.addEventListener("DOMContentLoaded", () => { //Esperar a que el html ca
       registerError.classList.add("hidden");
       registerError.textContent = "";
 
+      // Validar campos obligatorios
+      const nombre = document.getElementById("reg_nombre").value.trim();
+      const apellido = document.getElementById("reg_apellido").value.trim();
+      const password = document.getElementById("reg_password").value.trim();
+      const email = document.getElementById("reg_email").value.trim();
+      const tipoDoc = document.getElementById("reg_tipoDoc").value.trim();
+      const numDoc = document.getElementById("reg_numDoc").value.trim();
+
+      if (!nombre || !apellido || !password || !email || !tipoDoc || !numDoc) {
+        registerError.classList.remove("hidden");
+        registerError.classList.add("bg-red-50", "text-red-600", "border-red-200");
+        registerError.textContent = "Por favor, completa todos los campos obligatorios (marcados con *)";
+        return;
+      }
+
       const userData = {
-        NombreUsuario: document.getElementById("reg_username").value,
-        Contrasena: document.getElementById("reg_password").value,
-        Nombre: document.getElementById("reg_nombre").value,
-        Apellido: document.getElementById("reg_apellido").value,
-        Email: document.getElementById("reg_email").value,
-        TipoDocumento: document.getElementById("reg_tipoDoc").value,
-        NumeroDocumento: parseInt(document.getElementById("reg_numDoc").value),
-        Telefono: document.getElementById("reg_telefono").value,
-        Pais: document.getElementById("reg_pais").value,
-        Direccion: document.getElementById("reg_direccion").value,
-        IDRol: 2,
+        Contrasena: password,
+        Nombre: nombre,
+        Apellido: apellido,
+        Email: email,
+        TipoDocumento: tipoDoc,
+        NumeroDocumento: numDoc,
+        Telefono: document.getElementById("reg_telefono").value.trim() || null,
+        Pais: document.getElementById("reg_pais").value.trim() || null,
+        Direccion: document.getElementById("reg_direccion").value.trim() || null,
         IDRol: 2,
       };
 

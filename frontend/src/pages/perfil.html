@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedaje - Mi Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+    <!-- Include Sidebar Component -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content Area with Flex Layout -->
+    <div class="flex">
+        <main class="flex-1 mt-10 p-6">
+            <div class="max-w-3xl mx-auto">
+                
+                <!-- Header Card -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 p-8 text-white">
+                        <h1 class="text-3xl font-bold">Mi Perfil</h1>
+                        <p class="opacity-90 mt-2">Actualiza tu información personal</p>
+                    </div>
+
+                    <!-- Form -->
+                    <div id="profileViewMode" class="p-8 space-y-6">
+                        <!-- SECCIÓN 1: DOCUMENTO -->
+                        <div class="border-b-2 border-slate-200 pb-6">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">📋 Información de Documento</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Tipo de Documento</label>
+                                    <p id="viewTipoDocumento" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Número de Documento</label>
+                                    <p id="viewNumeroDocumento" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 2: DATOS DE CONTACTO -->
+                        <div class="border-b-2 border-slate-200 pb-6">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">📱 Datos de Contacto</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Nombre</label>
+                                    <p id="viewNombre" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Apellido</label>
+                                    <p id="viewApellido" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Teléfono</label>
+                                    <p id="viewTelefono" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">País</label>
+                                    <p id="viewPais" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                                <div class="md:col-span-2 space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Dirección</label>
+                                    <p id="viewDireccion" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 3: CREDENCIALES DE ACCESO -->
+                        <div class="border-b-2 border-slate-200 pb-6">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">🔐 Credenciales de Acceso</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Nombre de Usuario</label>
+                                    <p id="viewNombreUsuario" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-500">Email</label>
+                                    <p id="viewEmail" class="text-lg text-slate-800 font-medium">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 4: ROL -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">🔑 Información de Rol</h3>
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-slate-500">Tu Rol</label>
+                                <p id="viewRol" class="text-lg text-slate-800 font-medium px-4 py-2 bg-blue-50 rounded-lg border-l-4 border-l-blue-600">-</p>
+                            </div>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-8 border-t-2 border-slate-200">
+                            <button type="button" id="editProfileBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 shadow-md">
+                                ✏️ Editar Perfil
+                            </button>
+                            <button type="button" id="deleteAccountBtn" class="bg-red-100 hover:bg-red-200 text-red-600 font-bold py-3 px-6 rounded-lg transition duration-200">
+                                🗑️ Borrar Cuenta
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Edit Mode Form (Hidden by default) -->
+                    <form id="profileForm" class="p-8 space-y-6 hidden">
+                        
+                        <!-- SECCIÓN 1: DOCUMENTO -->
+                        <div class="border-b-2 border-slate-200 pb-6">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">📋 Información de Documento</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">📋 Tipo de Documento <span class="text-red-500">*</span></label>
+                                    <select id="TipoDocumento" required class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                        <option value="">Selecciona un tipo</option>
+                                        <option value="CC">Cédula de Ciudadanía</option>
+                                        <option value="CE">Cédula de Extranjería</option>
+                                        <option value="TI">Tarjeta de Identidad</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">🔢 Número de Documento <span class="text-red-500">*</span></label>
+                                    <input type="number" id="NumeroDocumento" required placeholder="Tu número de documento" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 2: DATOS DE CONTACTO -->
+                        <div class="border-b-2 border-slate-200 pb-6">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">📱 Datos de Contacto</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">👤 Nombre <span class="text-red-500">*</span></label>
+                                    <input type="text" id="Nombre" placeholder="Tu nombre" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">👤 Apellido <span class="text-red-500">*</span></label>
+                                    <input type="text" id="Apellido" placeholder="Tu apellido" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">📱 Teléfono</label>
+                                    <input type="text" id="Telefono" placeholder="+57 300 123 4567" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">🌍 País</label>
+                                    <input type="text" id="Pais" placeholder="Tu país" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                                <div class="md:col-span-2 space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">📍 Dirección</label>
+                                    <input type="text" id="Direccion" placeholder="Tu dirección completa" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 3: CREDENCIALES DE ACCESO -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">🔐 Credenciales de Acceso</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-semibold text-slate-700">✉️ Email <span class="text-red-500">*</span></label>
+                                    <input type="email" id="Email" required placeholder="tu@email.com" class="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-8 border-t-2 border-slate-200">
+                            <button type="submit" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 shadow-md">
+                                ✓ Guardar Cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="/src/js/perfil.js"></script>
+</body>
+</html>

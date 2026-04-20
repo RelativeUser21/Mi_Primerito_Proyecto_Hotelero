@@ -3,6 +3,15 @@ body {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+main {
+    margin-left: 288px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+body.sidebar-collapsed main {
+    margin-left: 80px;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
